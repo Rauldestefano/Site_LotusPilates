@@ -114,6 +114,15 @@
         }
 
         /* Testimonial Scroller Styles */
+        :root {
+            --scroller-gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            :root {
+                --scroller-gap: 2rem;
+            }
+        }
+
         .scroller {
             max-width: 100%;
             overflow: hidden;
@@ -125,7 +134,7 @@
             padding-block: 1rem;
             display: flex;
             flex-wrap: nowrap;
-            gap: 2rem;
+            gap: var(--scroller-gap);
             width: max-content;
             animation: scroll 40s linear infinite;
         }
@@ -154,12 +163,14 @@
 
         @keyframes scroll {
             to {
-                transform: translate(calc(-50% - 1rem));
+                transform: translate(calc(-50% - var(--scroller-gap) / 2));
             }
         }
 
         .testimonial-card {
-            width: 450px;
+            width: 85vw;
+            max-width: 450px;
+            flex-shrink: 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -199,7 +210,7 @@
 <div class="flex items-center gap-2 md:gap-4">
     <!-- WhatsApp Button (Always visible) -->
     <a href="https://wa.me/5511960952850" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-3 md:px-6 py-2 md:py-3 rounded-full font-semibold hover:scale-105 active:scale-95 transition-transform flex items-center gap-2 animate-cta-pulse text-xs md:text-base whitespace-nowrap">
-        <span class="material-symbols-outlined text-lg md:text-xl" data-icon="chat">chat</span>
+        <svg class="w-4 h-4 md:w-5 md:h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.878-2.056-.978-.277-.1-.478-.15-.678.15-.2.3-.775 1.051-.951 1.251-.176.2-.351.226-.651.076-.3-.15-1.269-.467-2.417-1.491-.892-.795-1.494-1.777-1.669-2.077-.176-.3-.019-.462.13-.611.134-.134.3-.35.451-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.678-1.636-.929-2.24-.244-.588-.493-.509-.678-.518-.175-.009-.375-.01-.575-.01-.2 0-.526.075-.802.375-.275.3-1.052 1.026-1.052 2.503s1.077 2.903 1.227 3.103c.15.2 2.122 3.24 5.14 4.542.717.31 1.277.494 1.711.631.72.227 1.375.196 1.893.118.578-.088 1.779-.726 2.03-1.427.25-.7.25-1.301.176-1.427-.076-.125-.276-.2-.576-.35z"/></svg>
         <span class="hidden xs:inline-block sm:hidden">Atendimento</span>
         <span class="hidden sm:inline-block">Falar com Atendimento</span>
     </a>
@@ -241,7 +252,7 @@
 
     <div class="mt-auto pt-8">
         <a href="https://wa.me/5511960952850" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-4 rounded-full font-bold flex items-center justify-center gap-3 shadow-lg shadow-primary/20">
-            <span class="material-symbols-outlined">chat</span>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.878-2.056-.978-.277-.1-.478-.15-.678.15-.2.3-.775 1.051-.951 1.251-.176.2-.351.226-.651.076-.3-.15-1.269-.467-2.417-1.491-.892-.795-1.494-1.777-1.669-2.077-.176-.3-.019-.462.13-.611.134-.134.3-.35.451-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.678-1.636-.929-2.24-.244-.588-.493-.509-.678-.518-.175-.009-.375-.01-.575-.01-.2 0-.526.075-.802.375-.275.3-1.052 1.026-1.052 2.503s1.077 2.903 1.227 3.103c.15.2 2.122 3.24 5.14 4.542.717.31 1.277.494 1.711.631.72.227 1.375.196 1.893.118.578-.088 1.779-.726 2.03-1.427.25-.7.25-1.301.176-1.427-.076-.125-.276-.2-.576-.35z"/></svg>
             Falar no WhatsApp
         </a>
     </div>
@@ -288,14 +299,14 @@
             <div class="flex flex-col gap-6 pt-4">
                 <a href="https://wa.me/5511960952850" target="_blank" rel="noopener noreferrer" class="w-fit bg-gradient-to-r from-[#9a4150] to-[#631627] text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group animate-cta-pulse">
                     Agendar Aula Experimental
-                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+                    <svg class="w-6 h-6 fill-current group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.878-2.056-.978-.277-.1-.478-.15-.678.15-.2.3-.775 1.051-.951 1.251-.176.2-.351.226-.651.076-.3-.15-1.269-.467-2.417-1.491-.892-.795-1.494-1.777-1.669-2.077-.176-.3-.019-.462.13-.611.134-.134.3-.35.451-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.678-1.636-.929-2.24-.244-.588-.493-.509-.678-.518-.175-.009-.375-.01-.575-.01-.2 0-.526.075-.802.375-.275.3-1.052 1.026-1.052 2.503s1.077 2.903 1.227 3.103c.15.2 2.122 3.24 5.14 4.542.717.31 1.277.494 1.711.631.72.227 1.375.196 1.893.118.578-.088 1.779-.726 2.03-1.427.25-.7.25-1.301.176-1.427-.076-.125-.276-.2-.576-.35z"/></svg>
                 </a>
                 
-                <div class="flex items-center gap-3 text-[#1c1b1c] font-semibold bg-white/60 backdrop-blur-md px-5 py-3 rounded-2xl border border-black/5 w-fit">
-                    <span class="material-symbols-outlined text-[#9a4150] text-2xl" data-icon="local_parking">local_parking</span>
+                <div class="flex items-center gap-3 text-[#1c1b1c] font-semibold bg-white/60 backdrop-blur-md px-4 py-2 md:px-5 md:py-3 rounded-2xl border border-black/5 w-fit">
+                    <span class="material-symbols-outlined text-[#9a4150] text-xl md:text-2xl" data-icon="local_parking">local_parking</span>
                     <div class="flex flex-col">
-                        <span class="text-[10px] uppercase tracking-widest opacity-60">Conforto VIP</span>
-                        <span class="text-sm">Estacionamento Gratuito</span>
+                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest opacity-60">Conforto VIP</span>
+                        <span class="text-xs md:text-sm">Estacionamento Gratuito</span>
                     </div>
                 </div>
             </div>
@@ -303,8 +314,8 @@
     </div>
     
     <!-- Floating Badge (Agora visível no mobile) -->
-    <div class="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-30 flex animate-bounce-slow scale-90 md:scale-100 origin-bottom-right">
-        <div class="bg-white/40 backdrop-blur-2xl p-4 md:p-6 rounded-[30px] border border-white/40 shadow-xl">
+    <div class="absolute bottom-4 right-4 md:bottom-10 md:right-10 z-30 flex animate-bounce-slow scale-[0.8] md:scale-100 origin-bottom-right">
+        <div class="bg-white/40 backdrop-blur-2xl p-3 md:p-6 rounded-[25px] md:rounded-[30px] border border-white/40 shadow-xl">
             <div class="flex items-center gap-4">
                 <div class="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gradient-to-br from-[#9a4150] to-[#631627] flex items-center justify-center text-white shadow-lg transform -rotate-3">
                     <span class="material-symbols-outlined text-xl md:text-2xl" data-icon="group">group</span>
@@ -366,7 +377,7 @@
     <div class="scroller">
         <div class="scroller__inner">
             <!-- 1. Helena -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -388,7 +399,7 @@
             </div>
 
             <!-- 2. Erika -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -410,7 +421,7 @@
             </div>
 
             <!-- 3. Silvia -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -432,7 +443,7 @@
             </div>
 
             <!-- 4. Gabriella -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -454,7 +465,7 @@
             </div>
 
             <!-- 5. Beatriz -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -476,7 +487,7 @@
             </div>
 
             <!-- 6. Bruna -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -499,7 +510,7 @@
 
             <!-- DUPLICATES FOR INFINITE SCROLL -->
             <!-- 1. Helena -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -521,7 +532,7 @@
             </div>
 
             <!-- 2. Erika -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -543,7 +554,7 @@
             </div>
 
             <!-- 3. Silvia -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -565,7 +576,7 @@
             </div>
 
             <!-- 4. Gabriella -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -587,7 +598,7 @@
             </div>
 
             <!-- 5. Beatriz -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -609,7 +620,7 @@
             </div>
 
             <!-- 6. Bruna -->
-            <div class="testimonial-card relative bg-surface-container-lowest p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
+            <div class="testimonial-card relative bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-[0_20px_40px_rgba(28,27,28,0.04)] border border-surface-container-low flex flex-col justify-between h-full">
                 <span class="material-symbols-outlined absolute top-8 right-8 text-4xl text-surface-variant opacity-20" data-icon="format_quote">format_quote</span>
                 <div>
                     <div class="flex gap-1 text-yellow-500 mb-6">
@@ -779,8 +790,9 @@
 <p class="text-lg text-secondary leading-relaxed font-medium">
                     Criado para quem busca o verdadeiro bem-estar físico e mental, o Lótus Studio Pilates construiu valores sólidos baseados na satisfação do cliente. Nossa prioridade é a busca constante pela excelência, com um atendimento acolhedor e humanizado que faz você se sentir em casa.
                 </p>
-<a href="https://wa.me/5511960952850" target="_blank" rel="noopener noreferrer" class="inline-block bg-white border border-outline-variant/30 text-on-surface px-10 py-4 rounded-full font-bold shadow-sm hover:shadow-md hover:bg-surface-container-low transition-all duration-300">
-                    Conhecer nossa equipe
+<a href="https://wa.me/5511960952850" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-white border border-outline-variant/30 text-on-surface px-10 py-4 rounded-full font-bold shadow-sm hover:shadow-xl hover:bg-primary hover:text-white hover:scale-105 hover:border-transparent active:scale-95 transition-all duration-300 animate-cta-pulse">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.878-2.056-.978-.277-.1-.478-.15-.678.15-.2.3-.775 1.051-.951 1.251-.176.2-.351.226-.651.076-.3-.15-1.269-.467-2.417-1.491-.892-.795-1.494-1.777-1.669-2.077-.176-.3-.019-.462.13-.611.134-.134.3-.35.451-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.678-1.636-.929-2.24-.244-.588-.493-.509-.678-.518-.175-.009-.375-.01-.575-.01-.2 0-.526.075-.802.375-.275.3-1.052 1.026-1.052 2.503s1.077 2.903 1.227 3.103c.15.2 2.122 3.24 5.14 4.542.717.31 1.277.494 1.711.631.72.227 1.375.196 1.893.118.578-.088 1.779-.726 2.03-1.427.25-.7.25-1.301.176-1.427-.076-.125-.276-.2-.576-.35z"/></svg>
+                    Agende uma aula
                 </a>
 </div>
 </div>
@@ -859,7 +871,7 @@
     <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-black text-primary mb-8 tracking-tight">Pronto para começar sua transformação? As vagas para nossos horários de pico são limitadas.</h2>
         <a href="https://wa.me/5511960952850" target="_blank" rel="noopener noreferrer" class="inline-flex bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-5 rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20 items-center gap-3 mx-auto animate-cta-pulse">
-            <span class="material-symbols-outlined" data-icon="chat">chat</span>
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.301-.15-1.779-.878-2.056-.978-.277-.1-.478-.15-.678.15-.2.3-.775 1.051-.951 1.251-.176.2-.351.226-.651.076-.3-.15-1.269-.467-2.417-1.491-.892-.795-1.494-1.777-1.669-2.077-.176-.3-.019-.462.13-.611.134-.134.3-.35.451-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.678-1.636-.929-2.24-.244-.588-.493-.509-.678-.518-.175-.009-.375-.01-.575-.01-.2 0-.526.075-.802.375-.275.3-1.052 1.026-1.052 2.503s1.077 2.903 1.227 3.103c.15.2 2.122 3.24 5.14 4.542.717.31 1.277.494 1.711.631.72.227 1.375.196 1.893.118.578-.088 1.779-.726 2.03-1.427.25-.7.25-1.301.176-1.427-.076-.125-.276-.2-.576-.35z"/></svg>
             Garantir Minha Vaga pelo WhatsApp
         </a>
     </div>
